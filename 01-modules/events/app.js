@@ -1,19 +1,13 @@
 // Events
 
-const EventEmitter = require('events');
+const Logger = require('./logger');
+const logger = new Logger();
 
-// Class-dan foydalanish uchun yangi object yaratib olamiz
-const emitter = new EventEmitter();
-
-emitter.on('messageLogged', (arg) => {
+logger.on('messageLogged', (arg) => {
   console.log('Listener chaqirildi!', arg);
 });
 
-emitter.emit('messageLogged', {
-  id: 1,
-  url: 'https://...'
-});
-
+logger.log('messsage2')
 
 // const EventEmitter = require('events');
 // const myEmitter = new EventEmitter();
