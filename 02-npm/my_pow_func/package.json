@@ -1,0 +1,15 @@
+{
+  "name": "my_pow_func",
+  "version": "1.0.2",
+  "description": "A simple librery for performing basic math operations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "math",
+    "pow"
+  ],
+  "author": "ilsorim",
+  "license": "ISC"
+}
