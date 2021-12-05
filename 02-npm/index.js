@@ -7,3 +7,11 @@ let _ = require('underscore');
 let a = _.contains([1, 2, 3], 3);
 
 console.log(a);
+
+/*
+ * npm list
+ * npm dated
+ * npm list
+ * npm update
+ * npm uninstall 
+ */
