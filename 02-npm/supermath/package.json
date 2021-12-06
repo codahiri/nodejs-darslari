@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "super-simple-mathjs": "^2.1.1"
+  "devDependencies": {
+    "ssm-js": "^3.0.2"
   }
 }
