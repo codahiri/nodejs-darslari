@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "super-simle-mathjs": "^1.0.1"
+    "super-simple-mathjs": "^2.1.1"
   }
 }
