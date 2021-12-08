@@ -31,7 +31,7 @@ app.post('/api/books', (req, res) => {
   const bookSchema = {
     name: Joi.string().required().min(3)
   };
-  const result = schema.validate(req.body, bookSchema);
+  const result = Joi.validate(req.body, bookSchema);
   if (result.error) {
     res.status(400).send(result.error);
   }
