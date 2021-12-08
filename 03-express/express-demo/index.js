@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
 
 const books = [{
     id: 1,
@@ -22,6 +23,15 @@ app.get('/', (req, res) => {
 
 app.get('/api/books', (req, res) => {
   res.send(books);
+});
+
+app.post('/api/books', (req, res) => {
+  const book = {
+    id: books.length + 1,
+    name: req.body.name
+  };
+  books.push(book);
+  res.status(201).send(book);
 });
 
 app.get('/api/books/:id', (req, res) => {
