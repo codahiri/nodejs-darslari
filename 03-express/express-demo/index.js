@@ -1,4 +1,5 @@
 const express = require('express');
+const Joi = require('joi');
 const app = express();
 app.use(express.json());
 
@@ -26,6 +27,23 @@ app.get('/api/books', (req, res) => {
 });
 
 app.post('/api/books', (req, res) => {
+
+  const bookSchema = {
+    name: Joi.string().required().min(3)
+  };
+  const result = Joi.validate(req.body, bookSchema);
+  if (result.error) {
+    res.status(400).send(result.error);
+  }
+
+  // if (!req.body.name) {
+  //   res.status(400).send('Name is required');
+  //   return;
+  // }
+  // if (req.body.name.length < 3) {
+  //   res.status(400).send('Name should be at least 3 characters');
+  //   return;
+  // }
   const book = {
     id: books.length + 1,
     name: req.body.name
