@@ -1,5 +1,5 @@
 const express = require('express');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const app = express();
 app.use(express.json());
 
@@ -28,12 +28,20 @@ app.get('/api/books', (req, res) => {
 
 app.post('/api/books', (req, res) => {
 
-  const bookSchema = {
-    name: Joi.string().required().min(3)
-  };
-  const result = Joi.validate(req.body, bookSchema);
+  // const bookSchema = Joi.object({
+  //   name: Joi.string().required().min(3)
+  // })
+  // const result = Joi.validate(req.body, bookSchema);
+  // if (result.error) {
+  //   res.status(400).send(result.error);
+  // }
+
+  const schema = Joi.object({
+    name: Joi.string().min(3).required()
+  });
+  const result = schema.validate(req.body);
   if (result.error) {
-    res.status(400).send(result.error);
+    res.status(400).send(result.error.details[0].message);
   }
 
   // if (!req.body.name) {
@@ -50,6 +58,7 @@ app.post('/api/books', (req, res) => {
   };
   books.push(book);
   res.status(201).send(book);
+
 });
 
 app.get('/api/books/:id', (req, res) => {
